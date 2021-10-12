@@ -45,7 +45,7 @@ let of_string : string -> (t, [ `Msg of string ]) result =
 let short_hash_string = Repr.(unstage (short_hash string))
 
 let short_hash_staged =
-  Repr.stage @@ fun ?seed t -> short_hash_string ?seed (H.to_raw_string t)
+  fun ?seed t -> short_hash_string ?seed (H.to_raw_string t)
 
 let t : t Repr.t =
   Repr.map ~pp ~of_string
